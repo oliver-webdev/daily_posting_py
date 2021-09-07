@@ -31,7 +31,7 @@ def set_color(num):
 
 def data_of_today():
     params = {
-        'access_key': os.getenv('MARKETSTACK_ACCESS_KEY'),
+        'access_key': environ['MARKETSTACK_ACCESS_KEY'],
         'symbols': 'SPY'
     }
 
@@ -111,7 +111,7 @@ def data_of_today():
 def write_post(dataset):
     print(dataset)
     params = {
-        'access_token': os.getenv('TISTORY_ACCESS_TOKEN'),
+        'access_token': os.environ['TISTORY_ACCESS_TOKEN'],
         'output': '',
         'blogName': 'binit',
         'title': '하루 한 번 체크하는 미국 ETF (' + dataset['data_symbol'] + ') - ' + str(datetime.today().year) + '.' + str(datetime.today().month) + '.' + str(datetime.today().day),
