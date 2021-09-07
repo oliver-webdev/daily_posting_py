@@ -1,3 +1,4 @@
+import os
 import requests
 from xml.etree import ElementTree
 from datetime import datetime
@@ -30,7 +31,7 @@ def set_color(num):
 
 def data_of_today():
     params = {
-        'access_key': '2d2641edc909dac0a2ddc8811d10dd63',
+        'access_key': os.getenv('MARKETSTACK_ACCESS_KEY'),
         'symbols': 'SPY'
     }
 
@@ -110,7 +111,7 @@ def data_of_today():
 def write_post(dataset):
     print(dataset)
     params = {
-        'access_token': 'ff6c007be6d21f479256e34174036e22_54b75b9597f0a31eb1e849efdc0d67ae',
+        'access_token': os.getenv('TISTORY_ACCESS_TOKEN'),
         'output': '',
         'blogName': 'binit',
         'title': '하루 한 번 체크하는 미국 ETF (' + dataset['data_symbol'] + ') - ' + str(datetime.today().year) + '.' + str(datetime.today().month) + '.' + str(datetime.today().day),
