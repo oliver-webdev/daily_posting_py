@@ -26,3 +26,6 @@ jobs:
     - name: Py Run Test
       run: |
         python test.py
+      env:
+        TISTORY_ACCESS_TOKEN: ${{ secrets.TISTORY_ACCESS_TOKEN }}
+        MARKETSTACK_ACCESS_KEY: ${{ secrets.MARKETSTACK_ACCESS_KEY }}
