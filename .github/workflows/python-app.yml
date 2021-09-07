@@ -26,3 +26,6 @@ jobs:
     - name: Lint with flake8
       run: |
         python main.py
+      env:
+        TISTORY_ACCESS_TOKEN: ${{ secrets.TISTORY_ACCESS_TOKEN }}
+        MARKETSTACK_ACCESS_KEY: ${{ secrets.MARKETSTACK_ACCESS_KEY }}
