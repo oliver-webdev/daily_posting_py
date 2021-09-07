@@ -1,5 +1,5 @@
 import os
 
 
-print(os.getenv('MARKETSTACK_ACCESS_KEY'))
-print(os.getenv('TISTORY_ACCESS_TOKEN'))
+print(os.environ['MARKETSTACK_ACCESS_KEY'])
+print(os.environ['TISTORY_ACCESS_TOKEN'])
