@@ -31,7 +31,7 @@ def set_color(num):
 
 def data_of_today():
     params = {
-        'access_key': environ['MARKETSTACK_ACCESS_KEY'],
+        'access_key': os.environ['MARKETSTACK_ACCESS_KEY'],
         'symbols': 'SPY'
     }
 
