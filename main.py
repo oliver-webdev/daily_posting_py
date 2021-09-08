@@ -2,6 +2,7 @@ import os
 import requests
 from xml.etree import ElementTree
 from datetime import datetime
+import pytz
 
 
 def test():
@@ -109,12 +110,15 @@ def data_of_today():
 
 
 def write_post(dataset):
-    print(dataset)
+    now = datetime.utcnow()
+    kst = pytz.timezone('Asia/Seoul')
+    now_kst = now.astimezone(kst)
+
     params = {
         'access_token': os.environ['TISTORY_ACCESS_TOKEN'],
         'output': '',
         'blogName': 'binit',
-        'title': '하루 한 번 체크하는 미국 ETF (' + dataset['data_symbol'] + ') - ' + str(datetime.today().year) + '.' + str(datetime.today().month) + '.' + str(datetime.today().day),
+        'title': '하루 한 번 체크하는 미국 ETF (' + dataset['data_symbol'] + ') - ' + now_kst.strftime("%Y") + '.' + now_kst.strftime("%m") + '.' + now_kst.strftime("%d"),
         'content': """<p>[##_Image|kage@cjZ35L/btrd7SCbmoJ/kucRgJToCfCSd7iPNh1wV0/img.png|alignCenter|data-origin-width="580" data-origin-height="580" data-filename="blob" data-ke-mobilestyle="widthOrigin"|||_##]</p>
 <table style="border-collapse: collapse; width: 100%; height: 170px;" border="1" data-ke-align="alignLeft">
 <tbody>
