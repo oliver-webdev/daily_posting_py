@@ -6,16 +6,6 @@ import pytz
 from bs4 import BeautifulSoup
 
 
-def test():
-    print(datetime.today().year)
-    print(datetime.today().month)
-    print(datetime.today().day)
-    print(datetime.today().hour)
-
-
-# test()
-
-
 def change_percentage(new, old):
     return round((float(new) - float(old)) / float(old) * 100, 2)
 
@@ -172,8 +162,6 @@ def write_post(dataset):
         'password': ''
     }
 
-    # ETF 데이터 활용하여 content 작성 필요
-
     api_result = requests.post('https://www.tistory.com/apis/post/write', params)
     tree = ElementTree.fromstring(api_result.content)
     print(tree.find('status').text)
@@ -205,13 +193,9 @@ def get_news():
 
             content_datetime = datetime.datetime.strptime(content_date, '%Y.%m.%d %H:%M')
             content_datetime_kst = content_datetime.astimezone(KST)
-            # print(content_datetime_kst)
 
             test_time = now_kst - datetime.timedelta(1)
             compare_time = test_time.replace(hour=8, minute=0, second=0, microsecond=0)
-            # print(compare_time)
-
-            # print(content_datetime_kst > compare_time)
 
             if content_datetime_kst > compare_time:
                 result += '''
