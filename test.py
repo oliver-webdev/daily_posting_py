@@ -44,7 +44,8 @@ def get_news():
             now_kst = now.astimezone(KST)
 
             content_datetime = datetime.datetime.strptime(content_date, '%Y.%m.%d %H:%M')
-            content_datetime_kst = content_datetime.astimezone(KST)
+            # content_datetime_kst = content_datetime.astimezone(KST)
+            content_datetime_kst = content_datetime.replace(tzinfo=KST)
             print(content_datetime_kst)
 
             test_time = now_kst - datetime.timedelta(1)
