@@ -2,6 +2,7 @@ import requests
 import os
 import datetime
 import pytz
+from bs4 import BeautifulSoup
 
 
 print(os.environ['MARKETSTACK_ACCESS_KEY'])
