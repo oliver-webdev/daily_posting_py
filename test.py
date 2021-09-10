@@ -45,16 +45,17 @@ def get_news():
 
             content_datetime = datetime.datetime.strptime(content_date, '%Y.%m.%d %H:%M')
             # content_datetime_kst = content_datetime.astimezone(KST)
-            content_datetime_kst = content_datetime.replace(tzinfo=KST)
-            print(content_datetime_kst)
+            # content_datetime_kst = content_datetime.replace(tzinfo=KST)
+            content_datetime_to_utc = content_datetime.astimezone(pytz.utc)
+            # print(content_datetime_kst)
 
-            test_time = now_kst - datetime.timedelta(1)
+            test_time = now - datetime.timedelta(1)
             compare_time = test_time.replace(hour=8, minute=0, second=0, microsecond=0)
-            print(compare_time)
+            # print(compare_time)
 
-            print(content_datetime_kst > compare_time)
+            print(content_datetime_to_utc > compare_time)
 
-            if content_datetime_kst > compare_time:
+            if content_datetime_to_utc > compare_time:
                 result += '''
 <p data-ke-size="size16"><a href="''' + content_link + '''" target="_blank" rel="noopener">'''+ content_title + '''"&nbsp;'''+ content_date + '''</a></p>'''
             else:
