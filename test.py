@@ -44,13 +44,13 @@ def get_news():
 
             content_datetime = datetime.datetime.strptime(content_date, '%Y.%m.%d %H:%M')
             content_datetime_kst = content_datetime.astimezone(KST)
-            # print(content_datetime_kst)
+            print(content_datetime_kst)
 
             test_time = now_kst - datetime.timedelta(1)
             compare_time = test_time.replace(hour=8, minute=0, second=0, microsecond=0)
-            # print(compare_time)
+            print(compare_time)
 
-            # print(content_datetime_kst > compare_time)
+            print(content_datetime_kst > compare_time)
 
             if content_datetime_kst > compare_time:
                 result += '''
