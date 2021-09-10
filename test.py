@@ -40,22 +40,19 @@ def get_news():
 
             # 시간
             now = datetime.datetime.utcnow()
-            KST = pytz.timezone('Asia/Seoul')
-            now_kst = now.astimezone(KST)
 
             content_datetime = datetime.datetime.strptime(content_date, '%Y.%m.%d %H:%M')
-            # content_datetime_kst = content_datetime.astimezone(KST)
-            # content_datetime_kst = content_datetime.replace(tzinfo=KST)
             content_datetime_to_utc = content_datetime.astimezone(pytz.utc)
-            # print(content_datetime_kst)
+            # print(content_datetime_to_utc)
 
             test_time = now - datetime.timedelta(1)
             compare_time = test_time.replace(hour=8, minute=0, second=0, microsecond=0)
-            # print(compare_time)
+            compare_time_to_utc = compare_time.astimezone(pytz.utc)
+            # print(compare_time_to_utc)
 
-            print(content_datetime_to_utc > compare_time)
+            print(content_datetime_to_utc > compare_time_to_utc)
 
-            if content_datetime_to_utc > compare_time:
+            if content_datetime_to_utc > compare_time_to_utc:
                 result += '''
 <p data-ke-size="size16"><a href="''' + content_link + '''" target="_blank" rel="noopener">'''+ content_title + '''"&nbsp;'''+ content_date + '''</a></p>'''
             else:
