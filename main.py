@@ -109,8 +109,9 @@ def write_post(dataset):
         'access_token': os.environ['TISTORY_ACCESS_TOKEN'],
         'output': '',
         'blogName': 'binit',
-        'title': '하루 한 번 체크하는 미국 ETF (' + dataset['data_symbol'] + ') - ' + now_kst.strftime("%Y") + '.' + now_kst.strftime("%m") + '.' + now_kst.strftime("%d"),
+        'title': '매일 아침 체크하는 미국 ETF 정보 (' + dataset['data_symbol'] + ') - ' + now_kst.strftime("%Y") + '.' + now_kst.strftime("%m") + '.' + now_kst.strftime("%d"),
         'content': """<p>[##_Image|kage@cjZ35L/btrd7SCbmoJ/kucRgJToCfCSd7iPNh1wV0/img.png|alignCenter|data-origin-width="580" data-origin-height="580" data-filename="blob" data-ke-mobilestyle="widthOrigin"|||_##]</p>
+<p data-ke-size="size16">미국&nbsp;주요&nbsp;ETF&nbsp;종목&nbsp;정보와&nbsp;해외&nbsp;증시&nbsp;관련&nbsp;뉴스&nbsp;기사를&nbsp;매일&nbsp;요약합니다. <br />-&nbsp;대상&nbsp;ETF:&nbsp;SPY <br />-&nbsp;기사&nbsp;출처:&nbsp;매일경제</p>
 <table style="border-collapse: collapse; width: 100%; height: 170px;" border="1" data-ke-align="alignLeft">
 <tbody>
 <tr style="height: 20px;">
