@@ -194,7 +194,7 @@ def get_news():
             content_datetime_to_utc = content_datetime.astimezone(pytz.utc)
 
             test_time = now - datetime.timedelta(1)
-            compare_time = test_time.replace(hour=8, minute=0, second=0, microsecond=0)
+            compare_time = test_time.replace(hour=23, minute=0, second=0, microsecond=0)
             compare_time_to_utc = compare_time.astimezone(pytz.utc)
 
             if content_datetime_to_utc > compare_time_to_utc:
