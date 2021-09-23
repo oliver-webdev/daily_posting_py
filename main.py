@@ -197,6 +197,8 @@ def get_news():
             compare_time = test_time.replace(hour=23, minute=0, second=0, microsecond=0)
             compare_time_to_utc = compare_time.astimezone(pytz.utc)
 
+            print('content_datetime_to_utc: ', content_datetime_to_utc, '/ compare_time_to_utc: ', compare_time_to_utc)
+
             if content_datetime_to_utc > compare_time_to_utc:
                 result += '''
 <p data-ke-size="size16"><a href="''' + content_link + '''" target="_blank" rel="noopener">'''+ content_title + '''"&nbsp;'''+ content_date + '''</a></p>'''
