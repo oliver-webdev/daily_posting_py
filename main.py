@@ -188,18 +188,18 @@ def get_news():
             content_date = content.select_one('dd.desc > span.date').get_text()
 
             # 시간
-            now = datetime.datetime.utcnow()
+            now = datetime.datetime.utcnow().astimezone(pytz.utc)
 
             content_datetime = datetime.datetime.strptime(content_date, '%Y.%m.%d %H:%M')
             content_datetime_to_utc = content_datetime.astimezone(pytz.utc)
 
             test_time = now - datetime.timedelta(1)
             compare_time = test_time.replace(hour=23, minute=0, second=0, microsecond=0)
-            compare_time_to_utc = compare_time.astimezone(pytz.utc)
+            # compare_time_to_utc = compare_time.astimezone(pytz.utc)
 
-            print('content_datetime_to_utc: ', content_datetime_to_utc, '/ compare_time_to_utc: ', compare_time_to_utc)
+            print('content_datetime_to_utc: ', content_datetime_to_utc, '/ compare_time: ', compare_time)
 
-            if content_datetime_to_utc > compare_time_to_utc:
+            if content_datetime_to_utc > compare_time:
                 result += '''
 <p data-ke-size="size16"><a href="''' + content_link + '''" target="_blank" rel="noopener">'''+ content_title + '''"&nbsp;'''+ content_date + '''</a></p>'''
             else:
